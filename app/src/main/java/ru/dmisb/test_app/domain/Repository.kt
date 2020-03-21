@@ -17,7 +17,7 @@ object Repository {
             .build()
     }
 
-    fun selectAllProduct() = db.productDao().selectAll()
+    fun selectAllProduct(search: String) = db.productDao().select(search)
 
     suspend fun insertProduct(product: Product) = withContext(Dispatchers.IO) {
         db.productDao().insert(product)

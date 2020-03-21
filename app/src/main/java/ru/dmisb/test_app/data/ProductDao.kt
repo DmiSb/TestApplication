@@ -6,8 +6,8 @@ import androidx.room.*
 @Dao
 interface ProductDao {
 
-    @Query("select * from Product order by name")
-    fun selectAll(): LiveData<List<Product>>
+    @Query("select * from Product where lower(name) like '%'||:search||'%' order by name")
+    fun select(search: String): LiveData<List<Product>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(product: Product)

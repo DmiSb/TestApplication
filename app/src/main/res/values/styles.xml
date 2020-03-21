@@ -8,6 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ToolbarTheme">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorHint">@color/searchHintColor</item>
+    </style>
+
+    <style name="AppSearchViewStyle" parent="Widget.AppCompat.Light.SearchView">
+        <item name="backgroundColor">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_marginStart">@dimen/dimen_16</item>
         <item name="android:layout_marginEnd">@dimen/dimen_16</item>

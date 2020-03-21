@@ -8,6 +8,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_detail.*
+import kotlinx.android.synthetic.main.include_toolbar.*
 import ru.dmisb.test_app.R
 import ru.dmisb.test_app.data.Product
 import ru.dmisb.test_app.ui.common.BaseFragment
@@ -20,7 +21,6 @@ import ru.dmisb.test_app.utils.setIsValid
 class DetailFragment : BaseFragment<DetailViewModel>() {
 
     override val layoutResId = R.layout.fragment_detail
-    override val showBackButton = true
 
     override fun initViewModel(): DetailViewModel {
         val product = defaultArg<Product?>().value
@@ -33,9 +33,12 @@ class DetailFragment : BaseFragment<DetailViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-
-        detailToolbar.title = if (viewModel.product == null) getString(R.string.detail_title_add)
-        else viewModel.product?.name.orEmpty()
+        initToolbar(
+            toolbar,
+            if (viewModel.product == null) getString(R.string.detail_title_add)
+            else viewModel.product?.name.orEmpty(),
+            true
+        )
 
         nameListener = SimpleTextWatcher { viewModel.productName = it }
         priceListener = SimpleTextWatcher { viewModel.productPrice = it }

@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_detail.*
 import ru.dmisb.test_app.R
 import ru.dmisb.test_app.utils.hideKeyboard
 
@@ -35,18 +35,17 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
         factory: ViewModelProvider.NewInstanceFactory, modelClass: Class<VM>
     ) = ViewModelProvider(this, factory).get(modelClass)
 
-    open val showBackButton: Boolean = false
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
+    fun initToolbar(toolbar: Toolbar, title: String, showBackButton: Boolean = false) {
         (activity as? AppCompatActivity?)?.apply {
-            setSupportActionBar(detailToolbar)
-            if (showBackButton) {
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
-            } else {
-                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            toolbar.title = title
+            setSupportActionBar(toolbar)
+            supportActionBar?.apply {
+                if (showBackButton) {
+                    setDisplayHomeAsUpEnabled(true)
+                    setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+                } else {
+                    setDisplayHomeAsUpEnabled(false)
+                }
             }
         }
     }

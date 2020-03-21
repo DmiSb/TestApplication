@@ -7,8 +7,9 @@
     <string name="button_cancel">Отмена</string>
 
     <!-- fragment_products -->
-    <string name="list_title">Список продуктов</string>
-    <string name="list_is_empty">Список продуктов\nпока пуст</string>
+    <string name="products_title">Продукты</string>
+    <string name="products_is_empty">Список продуктов\nпока пуст</string>
+    <string name="products_search">Поиск</string>
 
     <!-- fragment_detail -->
     <string name="detail_title_add">Добавить продукт</string>
