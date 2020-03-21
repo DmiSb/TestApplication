@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">TestApplication</string>
+
+    <string name="error_title">Ошибка!</string>
+
+    <string name="button_ok">OK</string>
+    <string name="button_cancel">Отмена</string>
+
+    <!-- fragment_products -->
+    <string name="list_title">Список продуктов</string>
+    <string name="list_is_empty">Список продуктов\nпока пуст</string>
+
+    <!-- fragment_detail -->
+    <string name="detail_title_add">Добавить продукт</string>
+    <string name="detail_name">Наименование</string>
+    <string name="detail_price">Стоимость</string>
+    <string name="detail_save">Сохранить</string>
+    <string name="detail_add">Добавить</string>
+    <string name="detail_delete">Удалить</string>
+    <string name="detail_delete_confirm">Удалить %s?</string>
+</resources>
